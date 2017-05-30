@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Cena">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cena" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CenaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CenaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CenaSoapIn">
+    <wsdl:part name="parameters" element="tns:Cena" />
+  </wsdl:message>
+  <wsdl:message name="CenaSoapOut">
+    <wsdl:part name="parameters" element="tns:CenaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="cenaSoap">
+    <wsdl:operation name="Cena">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ovoj metod vraka cena na soba</wsdl:documentation>
+      <wsdl:input message="tns:CenaSoapIn" />
+      <wsdl:output message="tns:CenaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="cenaSoap" type="tns:cenaSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Cena">
+      <soap:operation soapAction="http://tempuri.org/Cena" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="cenaSoap12" type="tns:cenaSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Cena">
+      <soap12:operation soapAction="http://tempuri.org/Cena" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="cena">
+    <wsdl:port name="cenaSoap" binding="tns:cenaSoap">
+      <soap:address location="http://localhost:49252/cena.asmx" />
+    </wsdl:port>
+    <wsdl:port name="cenaSoap12" binding="tns:cenaSoap12">
+      <soap12:address location="http://localhost:49252/cena.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

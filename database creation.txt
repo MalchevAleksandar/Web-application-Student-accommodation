@@ -1,0 +1,34 @@
+create database Dormitory;
+
+create table Student(
+name varchar(20) not null, 
+surname varchar(20) not null,
+username varchar(20),
+password varchar(20) not null,
+email varchar(40) not null,
+primary key (username)
+);
+
+create table Dorm (
+d_name varchar(20),
+primary key (d_name)
+);
+
+create table Room (
+d_name varchar(20),
+block varchar(1),
+room_id int,
+primary key (d_name, block, room_id),
+foreign key (d_name) references Dorm (d_name)
+);
+
+create table Application (
+username varchar(20),
+room_id int,
+block varchar(1),
+d_name varchar(20),
+primary key (username, room_id, block, d_name),
+foreign key (username) references Student(username),
+foreign key (d_name, block, room_id) references Room(d_name,block,room_id)
+);
+

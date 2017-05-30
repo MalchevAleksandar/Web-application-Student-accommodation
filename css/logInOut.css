@@ -1,0 +1,46 @@
+﻿@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+/*.formLog {
+	float: right;
+	margin: 5px;
+	background-color: #FFFFCC;
+	padding: 15px;
+}
+
+.wrapper{
+  margin:0.5em 0;
+}
+.username,.username:visited,.username:hover,.username:active{
+  -webkit-backface-visibility:hidden;
+          backface-visibility:hidden;
+    position:relative;
+  transition:0.5s color ease;
+    text-decoration:none;
+    color:#11b3d2;
+    font-size:1.5em;
+}
+.username:hover{
+    color:#d73444;
+}
+.username.before:before,.username.after:after{
+  content: "";
+  transition:0.5s all ease;
+  -webkit-backface-visibility:hidden;
+          backface-visibility:hidden;
+  position:absolute;
+}
+.username.before:before{
+  top:-0.25em;
+}
+.username.after:after{
+  bottom:-0.25em;
+}
+.username.before:before,a.after:after{
+  height:5px;
+  height:0.35rem;
+  width:0;
+  background:#d73444;
+}
+.username:after{
+  left:0;
+}*/
